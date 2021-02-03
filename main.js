@@ -24,8 +24,8 @@ function block_Update(getImage){
     bo.scaleToWidth(biw);
     bo.scaleToHeight(bih);
     bo.set({
-        top:py + 12,
-        left:px + 12
+        top:py,
+        left:px 
         });
         
     });
@@ -47,7 +47,7 @@ function myKeydown(e){
         document.getElementById("CW").innerHTML = biw ;
         document.getElementById("CH").innerHTML = bih ;
     }
-    if(keypressed == '87'){
+    if(keypressed == '70'){
         block_Update("wall.jpg");
     }
     if(keypressed == '71'){
@@ -87,4 +87,33 @@ function myKeydown(e){
         right();
     }
 }
+function up(){
+    if(py > 0){
+        py = py - bih;
+        canvas.remove(po);
+        player_Update();
+    }
+}
+function left(){
+    if(px > 0){
+        px = px - biw;
+        canvas.remove(po);
+        player_Update();
+    }
+}
 
+function down(){
+    if(py < 550){
+        py = py + bih;
+        canvas.remove(po);
+        player_Update();
+    }
+}
+
+function right(){
+    if(px < 950){
+        px = px + biw;
+        canvas.remove(po);
+        player_Update();
+    }
+}
